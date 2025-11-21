@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eunoiaverse - FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="images/css/styles.css"> 
+    <style>
+        /* Custom Neumorphic Background Color for consistency (if not in styles.css) */
+        .bg-neumorphic-bg { 
+            background-color: #f0f0f0; 
+        }
+        /* Custom Neumorphic Base for components (if not in styles.css) */
+        .neumorphic-base { 
+            background: #f0f0f0; 
+            box-shadow: 8px 8px 16px #c4c4c4, -8px -8px 16px #ffffff;
+        }
+        /* Style for active FAQ link/item for visual clarity */
+        .faq-link-active {
+            font-weight: 700;
+            color: #ea580c; /* Example: Orange-600 */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen pb-16 bg-neumorphic-bg font-sans">
+
+    <header class="header-gradient p-6 pb-20 relative text-center flex justify-between items-start">
+        <a href="index.html" class="self-start text-white text-xl" aria-label="Go Back to Home">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="logo absolute left-1/2 transform -translate-x-1/2" aria-label="eunoiaverse" role="img">
+            <img src="images/eunoiaverse-logo.png" alt="Eunoiaverse Logo" width="30" height="30" class="mx-auto">
+        </div>
+        <div class="flex space-x-4 text-white text-xl invisible">
+            <button aria-label="Chat"><i class="fas fa-comment-dots"></i></button>
+        </div>
+    </header>
+
+    <main id="main-content" class="flex-grow bg-neumorphic-bg -mt-16 pt-8 relative z-10 rounded-t-3xl">
+        <div class="container mx-auto px-4 max-w-screen-md">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4 px-2">
+                Frequently Asked Questions
+            </h1>
+            
+            <div class="text-gray-600 mb-6 p-2 border-l-4 border-orange-500 bg-gray-50 rounded-lg">
+                <p class="font-medium text-gray-700">FAQ ini menyediakan jawaban untuk pertanyaan mendasar mengenai Eunoiaverse.</p>
+                <p class="text-sm mt-1">Kunjungi **FAQ Lanjutan** kami di bawah untuk informasi yang lebih teknis. Eunoiaverse terus berevolusi dan menambah fitur baru, jadi dokumen ini mungkin mengandung informasi yang sudah tidak berlaku. Kami berencana FAQ, Manual Bot, dan dokumen lainnya dapat selesai diperbarui di akhir bulan September.</p>
+            </div>
+
+            <nav id="faq-toc" class="mb-8 p-4 neumorphic-base rounded-2xl">
+                <h2 class="text-lg font-semibold text-gray-800 mb-3">Daftar Isi</h2>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-700">
+                    <a href="#general-questions" class="hover:text-orange-500 transition duration-150">Umum</a>
+                    <a href="#eunoiaverse-basics" class="hover:text-orange-500 transition duration-150">Dasar Eunoiaverse</a>
+                    <a href="#groups-and-channels" class="hover:text-orange-500 transition duration-150">Grup dan Channel</a>
+                    <a href="#usernames" class="hover:text-orange-500 transition duration-150">Username dan t.me</a>
+                    <a href="#security" class="hover:text-orange-500 transition duration-150">Keamanan</a>
+                    <a href="#secret-chats" class="hover:text-orange-500 transition duration-150">Secret Chat</a>
+                    <a href="#your-account" class="hover:text-orange-500 transition duration-150">Akun Anda</a>
+                    <a href="#bots" class="hover:text-orange-500 transition duration-150">Bot</a>
+                    <a href="#in-depth" class="hover:text-orange-500 transition duration-150">Pertanyaan Mendalam</a>
+                    <a href="#troubleshooting" class="hover:text-orange-500 transition duration-150">Troubleshooting</a>
+                </div>
+            </nav>
+            
+            <section id="faq-section" class="space-y-4 mb-10">
+                <h2 class="text-xl font-bold text-gray-800 px-2 pt-4 border-t border-gray-200">FAQ Dasar (Contoh)</h2>
+                
+                <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                    <button id="faq-toggle-1" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(1)">
+                        <span>What is Eunoiaverse?</span>
+                        <i id="faq-icon-1" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                        <p>Eunoiaverse is a decentralized social platform focused on fostering meaningful connections and positive mental well-being. We combine social networking with unique features for creativity and community governance.</p>
+                    </div>
+                </div>
+
+                <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                    <button id="faq-toggle-2" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(2)">
+                        <span>How do I create a new post?</span>
+                        <i id="faq-icon-2" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                        <p>On the Home tab, look for the 'What's on your mind?' prompt just below the Stories. Click it to open the **Create Post modal**, where you can type your thoughts and add media.</p>
+                    </div>
+                </div>
+
+                <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                    <button id="faq-toggle-3" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(3)">
+                        <span>Is there a fee to use the platform?</span>
+                        <i id="faq-icon-3" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                        <p>Basic social networking features on Eunoiaverse are free. Certain premium or marketplace features may involve tokens or minor transaction fees, which are clearly marked.</p>
+                    </div>
+                </div>
+
+                <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                    <button id="faq-toggle-4" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(4)">
+                        <span>Where can I find my digital wallet?</span>
+                        <i id="faq-icon-4" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                        <p>Your integrated digital wallet can be accessed via the **'Wallet' icon** on the bottom navigation bar. Here you can manage your Eunoia tokens and digital assets.</p>
+                    </div>
+                </div>
+
+                <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                    <button id="faq-toggle-5" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(5)">
+                        <span>What is your privacy policy?</span>
+                        <i id="faq-icon-5" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-5" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                        <p>We prioritize user privacy. As a decentralized platform, we aim to minimize data collection and give users maximum control over their content and personal information. Full details are available on our dedicated Privacy Policy page.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="advanced-faq" class="space-y-6">
+                <h2 id="faq-lanjutan" class="text-3xl font-bold text-gray-800 mb-8 px-2 pt-8 border-t border-gray-300">FAQ Lanjutan 🧐</h2>
+                
+                <div id="general-questions">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-4 border-b border-gray-200">Umum</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-6" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(6)">
+                                <span>Apa itu Eunoiaverse?</span>
+                                <i id="faq-icon-6" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-6" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Eunoiaverse adalah aplikasi olahpesan berfokus pada kecepatan dan keamanan. Eunoiaverse sangat cepat, sederhana, dan gratis. Anda dapat menggunakan Eunoiaverse di semua perangkat pada waktu yang sama, dan semua pesan akan tersinkronisasi secara otomatis di semua ponsel, tablet, atau komputer Anda. Eunoiaverse memiliki lebih dari 1 miliar pengguna aktif bulanan dan merupakan salah satu dari 5 aplikasi yang diunduh terbanyak di dunia.</p>
+                                <p class="mt-2">Dengan Eunoiaverse, Anda dapat mengirim pesan, foto, video, dan berkas dalam format apa pun (doc, zip, mp3, dan sebagainya), juga membuat grup dengan jumlah anggota sampai 200,000 orang atau channel untuk penyiaran ke pelanggan dengan jumlah tak terbatas. Anda juga mendukung panggilan suara dan video terenkripsi secara end-to-end dan obrolan suara dalam grup untuk ribuan peserta. Ikuti Channel Tips kami untuk mempelajari fitur Eunoiaverse lebih lanjut.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-7" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(7)">
+                                <span>Untuk siapakah Eunoiaverse?</span>
+                                <i id="faq-icon-7" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-7" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Eunoiaverse untuk semuanya yang ingin mengirim pesan dan bertelepon dengan cepat dan andal. Pengguna bisnis dan tim kecil mungkin menyukai grup yang besar, username, aplikasi desktop dan fitur pembagian berkas yang kuat.</p>
+                                <p class="mt-2">Karena Grup Eunoiaverse dapat menampung hingga **200,000 anggota**, kami mendukung balasan, sebutan, dan tagar. Jika Anda membutuhkan privasi tambahan, kami menyediakan pengaturan lanjutan dan kebijakan yang revolusioner, termasuk **Secret Chat** perangkat-spesifik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-8" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(8)">
+                                <span>Apa yang membedakan Eunoiaverse dan WhatsApp?</span>
+                                <i id="faq-icon-8" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-8" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Tidak seperti WhatsApp, Eunoiaverse adalah aplikasi olahpesan **awan dengan sinkronisasi kontinu**. Anda dapat mengakses pesan dari berbagai perangkat secara bersamaan. Kami memungkinkan berbagi berkas hingga **2 GB** dan menyimpan semua media di awan tanpa perlu menghapusnya.</p>
+                                <p class="mt-2">Eunoiaverse lebih cepat dan jauh lebih aman berkat infrastruktur pusat data ganda dan enkripsi. Selain itu, Eunoiaverse gratis, tanpa iklan, dan tanpa biaya langganan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-9" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(9)">
+                                <span>Berapakah umur Eunoiaverse?</span>
+                                <i id="faq-icon-9" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-9" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Eunoiaverse untuk perangkat iOS diluncurkan pada tanggal **14 Agustus 2013**. Versi alpha untuk Android diluncurkan pada tanggal **20 Oktober 2013**.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-10" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(10)">
+                                <span>Perangkat yang mana yang dapat saya gunakan?</span>
+                                <i id="faq-icon-10" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-10" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Anda dapat menggunakan Eunoiaverse di ponsel pintar, tablet, dan komputer. Kami memiliki aplikasi untuk iOS (11.0+), Android (6.0+), aplikasi macOS bawaan, dan aplikasi desktop universal untuk Windows, macOS, dan Linux. Anda dapat masuk ke Eunoiaverse dari perangkat sebanyak yang Anda inginkan secara bersamaan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-11" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(11)">
+                                <span>Bagaimana Anda akan menghasilkan uang dari ini?</span>
+                                <i id="faq-icon-11" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-11" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Pendiri dan CEO kami **Pavel Durov** membiayai Eunoiaverse sepanjang sejarahnya. Walaupun Eunoiaverse akan memperkenalkan **monetisasi pada tahun 2021** untuk menutup biaya infrastruktur dan gaji pengembang, meraup keuntungan tidak akan pernah menjadi tujuan akhir kami. Kami percaya dalam pengiriman pesan yang cepat dan aman dan juga 100% gratis.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-12" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(12)">
+                                <span>Apa pendapat Anda mengenai privasi internet?</span>
+                                <i id="faq-icon-12" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-12" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Kami berpendapat bahwa dua komponen terpenting dalam privasi Internet adalah: Melindungi percakapan privat Anda dari pihak ketiga dan Melindungi data pribadi Anda dari pemasar/pemasang iklan.</p>
+                                <p class="mt-2">Tujuan Eunoiaverse adalah untuk membuat aplikasi olahpesan yang benar-benar gratis, dengan kebijakan privasi yang revolusioner.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-13" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(13)">
+                                <span>Apakah Anda memproses permintaan data?</span>
+                                <i id="faq-icon-13" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-13" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>**Secret Chat** menggunakan enkripsi end-to-end sehingga tidak ada data yang dapat disingkapkan. Untuk data obrolan awan, Eunoiaverse menggunakan infrastruktur terdistribusi (data disimpan di beberapa pusat data lintas berbagai yurisdiksi) dan kunci enkripsi dibagi menjadi beberapa bagian.</p>
+                                <p class="mt-2">Sampai hari ini, kami telah menyingkapkan **0 bita** pesan pengguna ke pihak ketiga, termasuk pemerintah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="eunoiaverse-basics">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Dasar Eunoiaverse</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-14" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(14)">
+                                <span>Apa yang dimaksud dengan centang di Eunoiaverse?</span>
+                                <i id="faq-icon-14" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-14" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <ul>
+                                    <li>* **Satu centang** — pesan terkirim ke awan Eunoiaverse.</li>
+                                    <li>* **Dua centang** — pesan dibaca (teman Anda membuka Eunoiaverse dan membuka halaman percakapan tempat pesan tersebut berada).</li>
+                                </ul>
+                                <p class="mt-2 text-sm">Kami tidak menyediakan status 'terkirim ke perangkat' karena Eunoiaverse dapat beroperasi di lebih dari satu perangkat secara bersamaan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-15" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(15)">
+                                <span>Dapatkah saya menyembunyikan status 'terakhir terlihat'?</span>
+                                <i id="faq-icon-15" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-15" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Ya, Anda dapat menetapkan siapa saja yang dapat melihat informasi di pengaturan **Privasi dan Keamanan**. Jika Anda tidak membagikan milik Anda, Anda juga tidak akan dapat melihat Waktu Terlihat orang tersebut, tetapi Anda akan melihat perkiraan waktu terlihat (belakangan ini, seminggu yang lalu, sebulan yang lalu, atau tak terlihat sangat lama).</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-16" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(16)">
+                                <span>Dapatkah saya menghapus pesan saya?</span>
+                                <i id="faq-icon-16" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-16" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Ya. Anda selalu dapat menghapus pesan apa pun yang Anda kirim atau terima **bagi kedua pihak** dalam percakapan satu-lawan-satu. Anda juga dapat membersihkan seluruh riwayat obrolan bagi kedua pihak. Pesan yang dihapus tidak meninggalkan jejak.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <div id="groups-and-channels">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Grup dan Channel</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-17" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(17)">
+                                <span>Apa perbedaan grup dan channel?</span>
+                                <i id="faq-icon-17" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-17" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>**Grup** cocok untuk diskusi, dapat menampung hingga 200.000 anggota, dan dapat dijadikan publik. Pesan ditandatangani dengan nama pengirim.</p>
+                                <p class="mt-2">**Channel** adalah alat penyiaran pesan untuk pelanggan berjumlah besar (jumlah tak terbatas). Pesan ditandatangani dengan nama dan foto channel dan bukan nama Anda, serta memiliki penghitung jumlah lihat.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-18" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(18)">
+                                <span>Bagaimana saya dapat menambah lebih banyak anggota? Apa itu tautan undangan?</span>
+                                <i id="faq-icon-18" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-18" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Anda dapat menambahkan kontak Anda atau menggunakan pencarian berdasarkan username. Anda juga dapat membuat **tautan undangan** (via Info Grup > Tambah Anggota > Undang ke Grup via Tautan) yang dapat digunakan siapa pun untuk bergabung dengan grup Anda. Tautan ini dapat dicabut kapan saja.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <div id="usernames">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Username dan t.me</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-19" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(19)">
+                                <span>Apa itu username? Bagaimana saya mendapatkannya?</span>
+                                <i id="faq-icon-19" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-19" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Anda dapat mengatur **username publik** di Pengaturan. Ini memungkinkan pengguna lain untuk menemukan Anda di pencarian global dan mengirim pesan kepada Anda meskipun mereka tidak mengetahui nomor telepon Anda. Jika Anda tidak nyaman, kami sarankan untuk tidak mengatur username.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-20" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(20)">
+                                <span>Bagaimana cara kerja t.me?</span>
+                                <i id="faq-icon-20" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-20" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Setelah Anda mengatur username, Anda dapat memberikan orang tautan **t.me/username** atau **username.t.me**. Kedua tautan tersebut akan secara otomatis membawa mereka ke aplikasi Eunoiaverse dan membuka obrolan dengan Anda, tanpa memerlukan nomor telepon.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-21" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(21)">
+                                <span>Jika seseorang menemukan saya dengan username... akankah mereka mengetahui nomor saya?</span>
+                                <i id="faq-icon-21" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-21" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Tidak. Kedua belah pihak tidak akan melihat nomor telepon satu sama lain (kecuali jika diizinkan dalam pengaturan privasi Anda). Hal ini mirip dengan kasus yang melibatkan Anda mengirim pesan ke seseorang yang telah Anda temui dalam sebuah grup Eunoiaverse.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <div id="security">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Keamanan</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-22" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(22)">
+                                <span>Seberapa amankah Eunoiaverse?</span>
+                                <i id="faq-icon-22" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-22" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Eunoiaverse lebih aman dari aplikasi olahpesan ramai lainnya. Kami dibangun di atas protokol **MTProto**, yang menggunakan algoritma teruji waktu untuk membuat keamanan kompatibel dengan pengantaran cepat dan keandalan dalam koneksi lemah.</p>
+                                <p class="mt-2">Jika Anda khawatir, gunakan **Secret Chat** yang menggunakan enkripsi end-to-end dan tidak meninggalkan jejak dalam server kami.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-23" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(23)">
+                                <span>Bagaimana cara kerja Verifikasi Dua Langkah?</span>
+                                <i id="faq-icon-23" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-23" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Anda dapat mengaktifkannya di **Pengaturan > Privasi dan Keamanan > Verifikasi Dua Langkah**. Setelah diaktifkan, Anda akan perlu baik **kode SMS maupun kata sandi tambahan** untuk masuk ke akun, menjadikannya jauh lebih aman daripada hanya kode SMS.</p>
+                            </div>
+                        </div>
+
+                        </div>
+                </div>
+
+                <div id="secret-chats">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Secret Chat</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-24" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(24)">
+                                <span>Mengapa Secret Chat berbeda?</span>
+                                <i id="faq-icon-24" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-24" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Secret Chat menggunakan **enkripsi end-to-end** (hanya Anda dan penerima yang dapat membaca) dan tidak meninggalkan jejak di server kami. Pesan tidak dapat diteruskan, dapat dihancurkan sendiri, dan hanya dapat diakses di perangkat asal.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-25" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(25)">
+                                <span>Bagaimana cara kerja pesan yang hancur sendirinya?</span>
+                                <i id="faq-icon-25" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-25" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Timer dapat diatur (ikon jam di input field) dan akan mulai bergerak sejak pesan ditampilkan di layar penerima (mendapat centang dua). Seketika waktu habis, pesan akan menghilang dari kedua perangkat.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <div id="your-account">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Akun Anda</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-26" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(26)">
+                                <span>Siapa yang dapat melihat nomor saya?</span>
+                                <i id="faq-icon-26" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-26" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Secara default, nomor Anda hanya tampak untuk pengguna yang sudah Anda tambahkan ke buku alamat. Anda dapat mengubah pengaturan ini di **Pengaturan > Privasi dan Keamanan > Nomor Ponsel**.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-27" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(27)">
+                                <span>Bagaimana saya dapat mengganti nomor telepon?</span>
+                                <i id="faq-icon-27" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-27" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Anda dapat mengganti nomor Anda dan menyimpan semua data (kontak, pesan, media, dan Secret Chat) dengan membuka **Pengaturan**, mengetuk nomor telepon Anda, dan memilih **'Ganti Nomor'**.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-28" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(28)">
+                                <span>Bagaimana cara kerja penghancuran akun otomatis?</span>
+                                <i id="faq-icon-28" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-28" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Jika Anda berhenti menggunakan Eunoiaverse dan tidak kembali online untuk sekurang-kurangnya **18 bulan** (pengaturan bawaan), akun Anda akan dihapus bersamaan dengan semua pesan, media, kontak, dan data lain yang tersimpan di awan Eunoiaverse. Anda dapat mengubah periode penghancuran spesifik ini di Pengaturan.</p>
+                            </div>
+                        </div>
+
+                        </div>
+                </div>
+
+                <div id="bots">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Bot</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-29" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(29)">
+                                <span>Apakah bot aman?</span>
+                                <i id="faq-icon-29" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-29" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Ya. Bot tidak berbeda dari pengguna manusia. Mereka dapat melihat nama publik, username, dan foto profil Anda, dan mereka dapat melihat pesan yang dikirimkan ke mereka, hanya itu. Mereka tidak dapat mengakses status terakhir terlihat Anda dan tidak melihat nomor telepon Anda. Perlakukan semua bot sebagai orang asing—jangan berikan mereka informasi sensitif.</p>
+                            </div>
+                        </div>
+
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-30" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(30)">
+                                <span>Apabila saya menambahkan bot ke dalam grup, dapatkan bot tersebut membaca pesan saya?</span>
+                                <i id="faq-icon-30" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-30" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Secara default, bot hanya melihat pesan yang ditujukan ke mereka. Namun, beberapa bot mungkin menonaktifkan mode privasi ini untuk berfungsi, dan dalam kasus tersebut, bot akan melihat semua pesan di grup. Jika grup Anda mengandung informasi yang sangat sensitif, lebih baik untuk menghindari penambahan bot yang Anda tak percayai sepenuhnya.</p>
+                            </div>
+                        </div>
+
+                        </div>
+                </div>
+
+                <div id="in-depth">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Pertanyaan Mendalam</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-31" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(31)">
+                                <span>Bisakah saya mendapatkan kode server-side Eunoiaverse?</span>
+                                <i id="faq-icon-31" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-31" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Aplikasi klien Eunoiaverse sepenuhnya bersumber terbuka, tetapi penerbitan kode server tidak memberikan jaminan keamanan. Integritas **Secret Chat** dapat diperiksa terlepas dari cara server bekerja. Eunoiaverse belum pernah menerbitkan kode servernya.</p>
+                            </div>
+                        </div>
+
+                        </div>
+                </div>
+
+                <div id="troubleshooting">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 px-2 pt-8 border-b border-gray-200">Troubleshooting</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-32" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(32)">
+                                <span>Penerimaan kode via Eunoiaverse</span>
+                                <i id="faq-icon-32" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-32" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Jika Anda belakangan ini menggunakan salah satu aplikasi kami, kami mungkin akan mengirimkan kode masuk **via Eunoiaverse** (ke obrolan Eunoiaverse, profil terverifikasi dengan centang biru) dan bukan SMS. Cukup periksa Eunoiaverse di salah satu perangkat Anda yang terhubung.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="neumorphic-base p-0 rounded-2xl overflow-hidden">
+                            <button id="faq-toggle-33" class="w-full text-left p-4 flex justify-between items-center text-gray-800 font-semibold hover:bg-gray-100 transition duration-150" onclick="toggleFaq(33)">
+                                <span>Tidak dapat mengirim pesan ke non-kontak</span>
+                                <i id="faq-icon-33" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div id="faq-content-33" class="hidden p-4 pt-0 text-gray-600 border-t border-gray-200">
+                                <p>Batasan ini dipasang ketika pengguna melaporkan pesan yang tidak diinginkan dari sebuah akun Eunoiaverse. Akun terlapor hanya dapat mengirim pesan ke orang yang mempunyai nomornya dan menyimpannya sebagai kontak. Jika Anda mengira batas ini salah, harap kunjungi halaman bantuan Eunoiaverse.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <div class="p-4 neumorphic-base rounded-2xl mt-10">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Hubungi Eunoiaverse Support 💬</h3>
+                    <p class="text-gray-600">Jika Anda mempunyai pertanyaan lain, harap hubungi Eunoiaverse Support (dalam Eunoiaverse, buka **Pengaturan — Kirim Pertanyaan**). Ingat bahwa kami mengandalkan relawan untuk bantuan.</p>
+                    <p class="text-gray-600 mt-2">Jika Anda tidak dapat masuk ke akun Anda, mohon gunakan **form khusus** untuk bantuan masuk.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <nav id="navbar" class="fixed bottom-0 left-0 right-0 z-30 neumorphic-base flex justify-around items-center p-3 mx-auto w-full max-w-screen-md sm:rounded-t-xl rounded-t-xl shadow-[6px_6px_12px_#bebebe,_-6px_-6px_12px_#ffffff]">
+        <a href="explore.html" class="nav-item flex flex-col items-center text-gray-700 hover:text-orange-500 transition" aria-label="Explore">
+            <i class="fas fa-compass text-xl"></i>
+            <span class="text-xs mt-1">Explore</span>
+        </a>
+        <a href="market.html" class="nav-item flex flex-col items-center text-gray-700 hover:text-orange-500 transition" aria-label="Marketplace">
+            <i class="fas fa-store text-xl"></i>
+            <span class="text-xs mt-1">Marketplace</span>
+        </a>
+        <a href="index.html" class="nav-item flex flex-col items-center text-orange-500 transition" aria-label="Home">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="wallet.html" class="nav-item flex flex-col items-center text-gray-700 hover:text-orange-500 transition" aria-label="Wallet">
+            <i class="fas fa-wallet text-xl"></i>
+            <span class="text-xs mt-1">Wallet</span>
+        </a>
+        <a href="profile.html" class="nav-item flex flex-col items-center text-gray-700 hover:text-orange-500 transition" aria-label="Profile">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-1">Profile</span>
+        </a>
+    </nav>
+    
+    <script>
+        /**
+         * Toggles the visibility of an FAQ answer and rotates the chevron icon.
+         * @param {number} id - The numerical ID of the FAQ item.
+         */
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+
+            // Check if content and icon exist
+            if (!content || !icon) return;
+
+            if (content.classList.contains('hidden')) {
+                // Close all other open FAQs
+                document.querySelectorAll('[id^="faq-content-"]').forEach(item => {
+                    if (item.id !== `faq-content-${id}` && !item.classList.contains('hidden')) {
+                        item.classList.add('hidden');
+                        const otherId = item.id.split('-').pop();
+                        const otherIcon = document.getElementById(`faq-icon-${otherId}`);
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate-180');
+                        }
+                    }
+                });
+                // Open the clicked FAQ
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                // Close the clicked FAQ
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
